@@ -32,7 +32,6 @@ Go to AWS Console → VPC Dashboard → Create VPC
 - **Name:** MyCustomVPC  
 - **IPv4 CIDR block:** 10.0.0.0/16  
 
-![img1](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/1.png)
 
 ### 🔹 Create a Subnet
 Go to VPC Dashboard → Subnets → Create Subnet  
@@ -41,13 +40,11 @@ Go to VPC Dashboard → Subnets → Create Subnet
 - **CIDR block:** 10.0.1.0/24  
 - **Enable Auto-assign Public IPv4**  
 
-![img2](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/2.png)
 
 ### 🔹 Create an Internet Gateway and Attach to VPC
 - **Name:** MyIGW  
 - **Attach it to:** MyCustomVPC  
 
-![img3](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/3.png)
 
 ### 🔹 Create and Associate a Route Table
 - **Name:** MyPublicRouteTable  
@@ -55,7 +52,6 @@ Go to VPC Dashboard → Subnets → Create Subnet
 - **Target:** MyIGW  
 - **Associate with:** MyPublicSubnet  
 
-![img4](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/4.png)
 
 ---
 
@@ -71,7 +67,6 @@ Go to VPC Dashboard → Subnets → Create Subnet
 - **Enable Auto-assign Public IP**  
 - **Security Group:** Allow SSH (22), HTTP (80), Streamlit (8501)  
 
-![img5](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/5.png)
 
 ---
 
@@ -82,7 +77,6 @@ Go to EC2 Dashboard → Select Instance → Click Connect
 - **Choose:** EC2 Instance Connect  
 - **Click:** Connect  
 
-![img6](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/6.png)
 
 ---
 
@@ -102,7 +96,6 @@ sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
-![img7](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/7.png)
 
 ---
 
@@ -111,7 +104,7 @@ sudo systemctl start docker
 scp -i your-key.pem app.py Dockerfile requirements.txt mushrooms.csv ec2-user@your-ec2-public-ip:/home/ec2-user/
 ```
 
-![img8](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/8.png)
+
 
 ---
 
@@ -126,16 +119,13 @@ cd /home/ec2-user
 sudo docker build -t streamlit-app .
 ```
 
-![img9](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/9.png)
 
 ### 🔹 Run the container
 ```sh
 sudo docker run -d -p 8501:8501 --name streamlit_container streamlit-app
 ```
 
-![img10](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/10.png)
 
----
 
 ## 8️⃣ Accessing the Streamlit App
 🌐 Open your browser and visit:
@@ -143,7 +133,7 @@ sudo docker run -d -p 8501:8501 --name streamlit_container streamlit-app
 http://your-ec2-public-ip:8501
 ```
 
-![img11](https://github.com/Sneha Naraniwal/containerexp/blob/84980abb1c4a643320f44cdf69efd0a0547dec32/10.%20Deploying%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/Images/11.png)
+
 
 
 9️⃣ Managing the Docker Container

@@ -109,9 +109,6 @@ Once the images are pushed, visit your Docker Hub repository:
 
 (Replace `yourusername` with your actual Docker Hub username.)
 
-![alt text](image-1.png)
-
-![alt text](image-2.png)
 
 ---
 
